@@ -28,8 +28,8 @@
                 <td>{{$item->body}}</td>
 
                 <td>
-                <a href="">delete</a>
-                <a href="">update</a>    
+                <a href="{{route('posts.edit',$item->id)}}">update</a>
+                <a href="">delete</a>    
                 </td>
                 
             </tr>

@@ -70,7 +70,9 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post=Post::findorFail($id);
+        // $post=Post::where('id',$id)->first();
+        return view("posts.edit",compact('post'));
     }
 
     /**
@@ -82,7 +84,21 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $post=Post::findorFail($id);
+        // $post->title=$request->title;
+        // $post->body=$request->body;
+        // $post->save();
+
+        // return redirect()->route("posts.index");
+
+
+        $post->Update([
+
+            'title'=>$request->title,
+            'body'=>$request->body
+        ]);
+        return redirect()->route("posts.index");
+
     }
 
     /**
